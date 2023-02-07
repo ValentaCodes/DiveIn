@@ -24,11 +24,13 @@ Boat.init(
       allowNull: false,
     },
     hourlyRate: {
+
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
     availability: {
       type: DataTypes.BOOLEAN,
+
     },
     location_id: {
       type: DataTypes.INTEGER,

@@ -5,13 +5,14 @@ const ExpressHandlebars = require("express-handlebars");
 const routes = require("./controllers/index.js");
 const helpers = require("./utils/helpers.js");
 const sequelize = require("./config/connection");
+const { STRING } = require("sequelize");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = ExpressHandlebars.create({ helpers });
 
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: "SESSION_SECRET",
   cookie: {
     maxAge: 300000,
     httpOnly: true,
