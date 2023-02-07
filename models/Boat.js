@@ -11,32 +11,24 @@ Boat.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    boatName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    boatCapacity: {
+    capacity: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    boatLength: {
+    length: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    boatDayRate: {
-      type: DataTypes.DECIMAL(10,2),
-      allowNull: false,
-    },
-    boatWeekRate: {
-      type: DataTypes.DECIMAL(10,2),
-      allowNull: false,
-    },
-    boatMonthRate: {
-      type: DataTypes.DECIMAL(10,2),
+    hourlyRate: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     location_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'location',
         key: 'id'

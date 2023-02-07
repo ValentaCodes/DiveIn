@@ -11,26 +11,22 @@ Location.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    locationAddress: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    locationState: {
+    state: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    locationZip: {
+    zip: {
       type: DataTypes.INTEGER(5),
       allowNull: false,
     },
-    locationLat: {
-      type: DataTypes.DECIMAL(3,10),
-      allowNull: false,
-    },
-    locationLon: {
-      type: DataTypes.DECIMAL(3,10),
-      allowNull: false,
-    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull:false
+    }
   },
   {
     sequelize,
