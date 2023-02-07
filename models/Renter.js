@@ -31,22 +31,6 @@ Renter.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      city: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      state: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      zip: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
     },
     password: {
       type: DataTypes.STRING,
@@ -63,7 +47,10 @@ Renter.init(
         return newRenterData;
       },
       beforeUpdate: async (updatedRenterData) => {
-        updatedRenterData.password = await bcrypt.hash(updatedRenterData.password, 10);
+        updatedRenterData.password = await bcrypt.hash(
+          updatedRenterData.password,
+          10
+        );
         return updatedRenterData;
       },
     },
@@ -71,7 +58,7 @@ Renter.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'renter',
+    modelName: "renter",
   }
 );
 
