@@ -16,9 +16,14 @@ Renter.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    // NOTE: added first and last name rows
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -27,16 +32,25 @@ Renter.init(
       validate: {
         isEmail: true,
       },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    },
+    // was missing a "}" here so it wasn't reading properly
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
+      },
+    },
+    // NOTE: added boat id so we know what boat is in use by renter
+    boat_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "boat",
+        key: "id",
       },
     },
   },
