@@ -30,13 +30,13 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// get all locations including boats at docked there
+// get all locations including boats docked there
 router.get("/", async (req, res) => {
   try {
     const locationData = await Location.findAll({
       include: {
         model: Boat,
-        attributes: ["title", "availability"],
+        attributes: ["name", "availability"],
       },
     });
     res.status(200).json(locationData);
