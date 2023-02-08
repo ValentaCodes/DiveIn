@@ -24,11 +24,9 @@ Location.init(
       allowNull: false,
     },
     city: {
-
       type: DataTypes.TEXT,
       allowNull: false,
     },
-
   },
   {
     sequelize,

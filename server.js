@@ -2,17 +2,16 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const ExpressHandlebars = require("express-handlebars");
-const routes = require("./controllers/index.js");
+const routes = require("./controllers/index");
 const helpers = require("./utils/helpers.js");
 const sequelize = require("./config/connection");
-const { STRING } = require("sequelize");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = ExpressHandlebars.create({ helpers });
 
 const sess = {
-  secret: "SESSION_SECRET",
+  secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
@@ -37,6 +36,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening an PORT" + PORT));
 });

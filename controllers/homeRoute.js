@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const { Boat, Location, Renter } = require("../models");
+const { Boat, Location } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
+    // TODO: Figure out why we cant access location in handlebars
     const boatData = await Boat.findAll({
       include: [
         {
@@ -20,3 +21,5 @@ router.get("/", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+module.exports = router;

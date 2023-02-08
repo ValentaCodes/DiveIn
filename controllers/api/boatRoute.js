@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { AsyncResource } = require('async_hooks');
 const { Boat } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
