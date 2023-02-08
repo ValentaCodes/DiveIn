@@ -4,6 +4,8 @@ const Renter = require('./Renter');
 
 Location.hasMany(Boat, {
   foreignKey: 'location_id',
+  // NOTE: added Cascade so if we remove a location, associated boats will be removed from location
+  onDelete: 'CASCADE'
 });
 
 Boat.belongsTo(Location, {
