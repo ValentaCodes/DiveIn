@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Malibu Response TXi Open Bow",
+    "capacity": 7,
+    "length": 20,
+    "dayRate": 160,
+    "availability": true
+    
+  },
+  {
+    "name": "MasterCraft 2021 ProStar",
+    "capacity": 7,
+    "length": 20,
+    "dayRate": 160,
+    "availability": true
+  },
+  {
+    "name": "2021 Nautique 200",
+    "capacity": 9,
+    "length": 20,
+    "dayRate": 160,
+    "availability": true
+  },
+  {
+    "name": "Chaparral 2021 19 SSI Ski and Fish",
+    "capacity": 11,
+    "length": 19,
+    "dayRate": 160,
+    "availability": true
+  },
+  {
+    "name": "Crestliner Super Hawk 1850 I/O",
+    "capacity": 8,
+    "length": 18,
+    "dayRate": 160,
+    "availability": true
+  }
+]
