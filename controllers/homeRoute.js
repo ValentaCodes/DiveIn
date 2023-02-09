@@ -25,18 +25,16 @@ router.get("/", async (req, res) => {
 router.get("/boat/:id", async (req, res) => {
   try {
     const boatData = await Boat.findByPk(req.params.id, {
-      include: [
-        {
-          model: Location,
-        },
-        {
-          model: Renter,
-          attributes: ["image", "first_name"],
-        },
-      ],
+      // NOTE: to properly see a user on boat page the boat needs a renter_id
+      include: [{
+        model: Renter,
+        attributes: ['first_name']
+      }, {model: Location}], 
     });
     const boat = boatData.get({ plain: true });
-    res.render("boat", { boat });
+    res.render("boat", {
+      ...boat,
+    });
   } catch (error) {
     res.status(500).json(error);
   }
