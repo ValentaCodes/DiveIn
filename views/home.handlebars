@@ -1,42 +1,23 @@
+<div class="title">
+  Top Boats
+</div>
 <div class="tile is-ancestor" id="boat_container">
   {{#each boats as |boat|}}
     <div class="tile">
-      <div class="card">
+      <div class="card" id="boat_card">
         <div class="card-image">
-          <figure class="image is-5by4">
-            <img
-              src="{{boat.image}}"
-              alt="Placeholder image"
-            />
+          <figure class="image is-4by3">
+            <a href="/boat/{{boat.id}}">
+              <img src="{{boat.image}}" alt="Placeholder image" />
+            </a>
           </figure>
         </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img
-                  src="{{boat.image}}"
-                  alt="Placeholder image"
-                />
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">{{boat.location.city}}</p>
-              <p class="subtitle is-6">@</p>
-            </div>
-          </div>
-
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            nec iaculis mauris.
-            <a>@bulmaio</a>.
-            <a href="#">#css</a>
-            <a href="#">#responsive</a>
-            <br />
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          </div>
-        </div>
+        <p class="title is-5">
+          {{boat.name}}
+        </p>
       </div>
     </div>
   {{/each}}
+</div>
+<div>
 </div>
