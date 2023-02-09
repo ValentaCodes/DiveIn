@@ -13,7 +13,11 @@ Boat.belongsTo(Location, {
 });
 
 Renter.hasOne(Boat, {
-  foreignKey: 'boat_id',
+  foreignKey: 'renter_id',
 });
+// needed this for seeds and front end. gotta mess around with it 
+Boat.belongsTo(Renter, {
+  foreignKey: 'renter_id'
+})
 
 module.exports = { Boat, Renter, Location };
