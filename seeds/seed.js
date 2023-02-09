@@ -59,5 +59,4 @@ const renterData = [
     password: "password12345",
   },
 ];
-
 seedDatabase();
