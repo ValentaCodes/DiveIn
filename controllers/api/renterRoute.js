@@ -1,8 +1,11 @@
-const router = require('express').Router();
-const { Renter } = require('../../models');
+const router = require("express").Router();
+const { Renter } = require("../../models");
+
+// FIXME: figure out why we cant create from the postman/insomnia
+// Every other file works so the solution is here in this file
 
 // CREATE a new Renter
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const dbRenterData = await Renter.create({
       Rentername: req.body.Rentername,
@@ -23,7 +26,7 @@ router.post('/', async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const dbRenterData = await Renter.findOne({
       where: {
@@ -33,7 +36,7 @@ router.post('/login', async (req, res) => {
 
     if (!dbRenterData) {
       res.status(400).json({
-        message: 'The email or password do not match. Please try again.',
+        message: "The email or password do not match. Please try again.",
       });
       return;
     }
@@ -42,7 +45,7 @@ router.post('/login', async (req, res) => {
 
     if (!validPassword) {
       res.status(400).json({
-        message: 'The email or password do not match. Please try again.',
+        message: "The email or password do not match. Please try again.",
       });
       return;
     }
@@ -52,7 +55,7 @@ router.post('/login', async (req, res) => {
 
       res
         .status(200)
-        .json({ Renter: dbRenterData, message: 'You are now logged in!' });
+        .json({ Renter: dbRenterData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -61,7 +64,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -72,4 +75,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-//comment 2git st

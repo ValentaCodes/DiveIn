@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const { Boat, Location } = require("../models");
+const { Boat, Location, Renter } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    // TODO: Figure out why we cant access location in handlebars
     const boatData = await Boat.findAll({
       include: [
         {
           model: Location,
-          attributes: ["city"],
+          // attributes: ["city"],
         },
       ],
     });
@@ -22,4 +21,24 @@ router.get("/", async (req, res) => {
   }
 });
 
+// TODO: figure out why we can use location and renter data in boats mustache
+router.get("/boat/:id", async (req, res) => {
+  try {
+    const boatData = await Boat.findByPk(req.params.id, {
+      include: [
+        {
+          model: Location,
+        },
+        {
+          model: Renter,
+          attributes: ["image", "first_name"],
+        },
+      ],
+    });
+    const boat = boatData.get({ plain: true });
+    res.render("boat", { boat });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 module.exports = router;

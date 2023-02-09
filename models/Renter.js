@@ -25,6 +25,10 @@ Renter.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    // NOTE: renter images will be used for reviews
+    image: {
+      type: DataTypes.BLOB('long')
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
