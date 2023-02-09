@@ -1,7 +1,29 @@
 * {
   box-sizing: border-box;
 }
+#single_boat {
+  width: 55rem;
+}
+.boat_wrapper {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+}
+
+#boat_details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: .5rem;
+  font-size: 20px;
+  border-left: 2px black solid;
+}
+#card-title {
+  margin-right: 2rem;
+}
 #boat_container {
   display: flex;
   flex-direction: row;
