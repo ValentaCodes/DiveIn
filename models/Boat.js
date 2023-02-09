@@ -25,11 +25,9 @@ Boat.init(
     },
     hourlyRate: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
     },
     availability: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
     },
     // NOTE: added image table so we can store boat images
     image: {
