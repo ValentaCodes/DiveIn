@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { Renter } = require("../../models");
 
-// FIXME: figure out why we cant create from the postman/insomnia
-// Every other file works so the solution is here in this file
-
 // CREATE a new Renter
 router.post("/", async (req, res) => {
   try {
