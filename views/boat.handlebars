@@ -1,36 +1,73 @@
-<article class="media">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      {{! TODO: figure out how to access renter and location information }}
-      <img src="{{boat.renter.first_name}}" />
-    </p>
-  </figure>
-  <div class="media-content">
-    <div class="content">
-      <p>
-        <strong>{{boat}}</strong>
-        <small>@johnsmith</small>
-        <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare
-        magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa
-        sem. Etiam finibus odio quis feugiat facilisis.
-      </p>
+<div class="boat_wrapper">
+  <div class="card" id="single_boat">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="{{image}}" alt="" />
+      </figure>
     </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-reply"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-heart"></i></span>
-        </a>
+    <div class="card-content">
+      <div class="media">
+        <p class="title is-2" id="card-title">{{location.city}},
+          {{location.state}}</p>
+        <div class="media-content" id="boat_details">
+          <ul>
+            <li>
+              Rate:
+              {{hourlyRate}}/Hr
+            </li>
+            <li>
+              Length:
+              {{length}}
+              ft.
+            </li>
+            <li>
+              Capacity:
+              {{capacity}}
+            </li>
+          </ul>
+        </div>
       </div>
-    </nav>
+    </div>
+    <footer class="card-footer">
+      <a href="/login" class="card-footer-item">Reserve</a>
+    </footer>
   </div>
-  <div class="media-right">
-    <button class="delete"></button>
-  </div>
-</article>
+  {{#if reviews}}
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          {{! TODO: figure out how to access renter and location information }}
+          <img src="{{renter.image}}" />
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{renter.first_name}}</strong>
+            <small>@johnsmith</small>
+            <br />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+            ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
+            non massa sem. Etiam finibus odio quis feugiat facilisis.
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-reply"></i></span>
+            </a>
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+            </a>
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-heart"></i></span>
+            </a>
+          </div>
+        </nav>
+      </div>
+      <div class="media-right">
+        <button class="delete"></button>
+      </div>
+    </article>
+  {{/if}}
+</div>

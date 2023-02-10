@@ -25,6 +25,11 @@ Renter.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     // NOTE: renter images will be used for reviews
     image: {
       type: DataTypes.BLOB('long')

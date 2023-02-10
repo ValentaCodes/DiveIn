@@ -49,13 +49,16 @@ const locationData = [
 ];
 
 // Creates a random user
+let first_name = faker.name.firstName(); //outside the object so we can use them for user-names
+let last_name = faker.name.lastName();
 const renterData = [
   {
-    first_name: faker.name.firstName(),
-    last_name: faker.name.lastName(),
+    first_name: first_name,
+    last_name: last_name,
+    user_name: faker.internet.userName(first_name, last_name),
     image: faker.image.avatar(),
     email: faker.internet.email(),
-    phone: faker.phone.number(),
+    phone: faker.phone.number("###-###-####"),
     password: "password12345",
   },
 ];
