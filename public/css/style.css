@@ -10,14 +10,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 #boat_details {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   font-size: 20px;
   border-left: 2px black solid;
 }
@@ -26,21 +25,34 @@
 }
 #boat_container {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#login_container {
+  margin: 1rem;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  /* margin: 1rem; */
+  justify-content: center;
+  align-items: center;
+}
+.main_container {
+  padding: 1rem;
+  margin: 1rem;
 }
 
-#state,
-#date,
-#capacity {
+#state-search,
+#date-search,
+#capacity-search {
   width: 20rem;
 }
 #boat_card {
   text-align: center;
-  margin: 1.1rem;
-  width: 300px;
-  height: fit-content;
+  margin: 3px;
+  width: 400px;
+  justify-content: space-evenly;
+  align-items: center;
+  /* height: fit-content; */
 }
 
 .hero {

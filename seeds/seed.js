@@ -6,21 +6,28 @@ const sequelize = require("../config/connection");
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
 
-  const boats = await Boat.bulkCreate(boatData, {
+  // const boats = await Boat.bulkCreate(boatData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+  const locations = await Location.bulkCreate(locationData, {
     individualHooks: true,
     returning: true,
   });
 
-  await Location.bulkCreate(locationData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const boat of boatData) {
+    await Boat.create({
+      ...boat,
+      // This assigns a random location for a boat to be docked
+      location_id: locations[Math.floor(Math.random() * locations.length)].id,
+    });
+  }
 
   for (const renter of renterData) {
     await Renter.create({
       ...renter,
       // this will assign a random boat to a renter
-      boat_id: boats[Math.floor(Math.random() * boats.length)].id,
+      // boat_id: boats[Math.floor(Math.random() * boats.length)].id,
     });
   }
   process.exit(0);
@@ -55,7 +62,7 @@ const renterData = [
   {
     first_name: first_name,
     last_name: last_name,
-    user_name: faker.internet.userName(first_name, last_name),
+    username: faker.internet.userName(first_name, last_name),
     image: faker.image.avatar(),
     email: faker.internet.email(),
     phone: faker.phone.number("###-###-####"),
