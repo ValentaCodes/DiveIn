@@ -41,6 +41,15 @@
   margin: 1rem;
 }
 
+.user_info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+}
+.user_photo {
+  border-radius: 50%;
+}
 #state-search,
 #date-search,
 #capacity-search {
