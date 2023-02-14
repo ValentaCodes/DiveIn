@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { Renter } = require("../../models");
+const router = require('express').Router();
+const { Renter } = require('../../models');
 
 // CREATE a new Renter
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const renterData = await Renter.create(req.body);
 
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const renterData = await Renter.findOne({
       where: {
@@ -27,7 +27,7 @@ router.post("/login", async (req, res) => {
 
     if (!renterData) {
       res.status(400).json({
-        message: "The username or password do not match. Please try again.",
+        message: 'The username or password do not match. Please try again.',
       });
       return;
     }
@@ -35,9 +35,7 @@ router.post("/login", async (req, res) => {
     const validPassword = renterData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({
-        message: "The email or password do not match. Please try again.",
-      });
+      res.status(400).json({ message: 'Wrong email or password' });
       return;
     }
 
@@ -45,7 +43,7 @@ router.post("/login", async (req, res) => {
       req.session.renter_id = renterData.id;
       req.session.logged_in = true;
 
-      res.json({ renter: renterData, message: "You are now logged in!" });
+      res.json({ renter: renterData, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(500).json(err);
@@ -53,13 +51,24 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-router.post("/logout", (req, res) => {
+
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const renterData = await Renter.findAll({});
+
+    res.status(200).json(renterData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

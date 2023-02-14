@@ -5,9 +5,9 @@ const { Boat } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     const newBoat = await Boat.create(
-      req.body,
+      req.body
       // renter_id: req.session.renter_id,
-  );
+    );
 
     res.status(200).json(newBoat);
   } catch (err) {
@@ -20,12 +20,14 @@ router.delete('/:id', async (req, res) => {
     const boatData = await Boat.destroy({
       where: {
         id: req.params.id,
-        // renter_id: req.session.renter_id,
+        // renter_id: req.session.renter_id test comment,
       },
-  });
+    });
 
     if (!boatData) {
-      res.status(404).json({ message: 'ARRRGGH! No boat be found with this id, matey!' });
+      res
+        .status(404)
+        .json({ message: 'ARRRGGH! No boat be found with this id, matey!' });
       return;
     }
 
@@ -33,19 +35,30 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-
 });
 
 router.get('/', async (req, res) => {
   try {
-    const boatData = await Boat.findAll({
-    });
-  
+    const boatData = await Boat.findAll({});
+
     res.status(200).json(boatData);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
- 
+});
+// new PUT route to update availability and renter id comment
+router.put('/:id', async (req, res) => {
+  try {
+    const { availability, renter_id } = req.body;
+    const boat = await Boat.findByPk(req.params.id);
+    const boatData = await boat.update({
+      availability: availability,
+      renter_id: renter_id,
+    });
+    res.status(200).json(boatData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
