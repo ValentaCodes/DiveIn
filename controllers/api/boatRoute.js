@@ -20,7 +20,7 @@ router.delete('/:id', async (req, res) => {
     const boatData = await Boat.destroy({
       where: {
         id: req.params.id,
-        // renter_id: req.session.renter_id,
+        // renter_id: req.session.renter_id test comment,
       },
     });
 
