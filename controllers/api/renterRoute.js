@@ -1,29 +1,15 @@
 const router = require('express').Router();
 const { Renter } = require('../../models');
 
-// FIXME: figure out why we cant create from the postman/insomnia
-// Every other file works so the solution is here in this file
-
-//{
-// "first_name": "Jeremiah",
-// "last_name": "Chesley",
-// "image": "https://www.companionsystems.com/wp-content/uploads/2016/08/DSC6580_web.jpg",
-// "email": "msgrmiah@gmail.com",
-// "phone": "801-971-7063",
-// "password": "braindamaged23@",
-// "boat_id": "2"
-// }
-
 // CREATE a new Renter
 router.post('/', async (req, res) => {
   try {
     const renterData = await Renter.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = renterData.id;
+      req.session.renter_id = renterData.id;
       req.session.logged_in = true;
-
-      res.status(200).json(userData);
+      res.status(200).json(renterData);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -34,15 +20,19 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const renterData = await Renter.findOne({
-      where: { email: req.body.email },
+      where: {
+        username: req.body.username,
+      },
     });
 
     if (!renterData) {
-      res.status(400).json({ message: 'Wrong email or password.' });
+      res.status(400).json({
+        message: 'The username or password do not match. Please try again.',
+      });
       return;
     }
 
-    const validPassword = await renterData.checkPassword(req.body.password);
+    const validPassword = renterData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'Wrong email or password' });
@@ -50,19 +40,20 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = renterData.id;
+      req.session.renter_id = renterData.id;
       req.session.logged_in = true;
 
-      res.json({ user: renterData, message: 'Login successful' });
+      res.json({ renter: renterData, message: 'You are now logged in!' });
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
 // Logout
+
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });

@@ -5,22 +5,24 @@ const sequelize = require("../config/connection");
 // Seed database function that allows us to create a new renter and location
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
-
-  const boats = await Boat.bulkCreate(boatData, {
+  const locations = await Location.bulkCreate(locationData, {
     individualHooks: true,
     returning: true,
   });
 
-  await Location.bulkCreate(locationData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const boat of boatData) {
+    await Boat.create({
+      ...boat,
+      // This assigns a random location for a boat to be docked
+      location_id: locations[Math.floor(Math.random() * locations.length)].id,
+    });
+  }
 
   for (const renter of renterData) {
     await Renter.create({
       ...renter,
       // this will assign a random boat to a renter
-      boat_id: boats[Math.floor(Math.random() * boats.length)].id,
+      // boat_id: boats[Math.floor(Math.random() * boats.length)].id,
     });
   }
   process.exit(0);
@@ -49,13 +51,17 @@ const locationData = [
 ];
 
 // Creates a random user
+let first_name = faker.name.firstName(); //outside the object so we can use them for user-names
+let last_name = faker.name.lastName();
+let image = faker.image.avatar(); 
 const renterData = [
   {
-    first_name: faker.name.firstName(),
-    last_name: faker.name.lastName(),
-    image: faker.image.avatar(),
+    first_name: first_name,
+    last_name: last_name,
+    username: faker.internet.userName(first_name, last_name),
+    image: image,
     email: faker.internet.email(),
-    phone: faker.phone.number(),
+    phone: faker.phone.number("###-###-####"),
     password: "password12345",
   },
 ];

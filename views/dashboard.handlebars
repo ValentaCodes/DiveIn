@@ -1,0 +1,72 @@
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification">
+          <p class="title is-4">Your Reviews </p>
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="{{image}}" />
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>{{first_name}} {{last_name}}</strong>
+                  <small>@{{username}}</small>
+                  <small>31m</small>
+                  <br />
+                  {{review}}
+                </p>
+              </div>
+            </div>
+          </article>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="title is-4">Leave a Review</p>
+          <form>
+            <textarea
+              class="textarea"
+              id="review-submit"
+              cols="20"
+              rows="10"
+            ></textarea>
+            <button class="button is-halfwidth">Submit</button>
+          </form>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification">
+        <p class="title is-4">Your Boats</p>
+        <p class="subtitle">WILL PLACE RESERVED BOATS HERE</p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification">
+      <div class="content">
+        <p class="title is-4">Welcome Back {{first_name}}</p>
+        <div class="content">
+          <figure class="image is-4by3">
+            <img src="{{image}}" class="user_photo" />
+          </figure>
+          <article class="tile is-child">
+            <div class="user_info">
+              <p class="subtitle">Username: {{username}} </p>
+              <p class="subtitle">Phone: {{phone}} </p>
+              <p class="subtitle">Email: {{email}}</p>
+            </div>
+          </article>
+          <!-- Content -->
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

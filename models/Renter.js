@@ -23,11 +23,16 @@ Renter.init(
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     // NOTE: renter images will be used for reviews
     image: {
-      type: DataTypes.BLOB('long')
+      type: DataTypes.BLOB("long"),
     },
     email: {
       type: DataTypes.STRING,
@@ -37,10 +42,9 @@ Renter.init(
         isEmail: true,
       },
     },
-    // was missing a "}" here so it wasn't reading properly
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,

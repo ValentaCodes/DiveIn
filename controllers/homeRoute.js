@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Boat, Location, Renter } = require("../models");
+const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -7,7 +8,6 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: Location,
-          // attributes: ["city"],
         },
       ],
     });
@@ -21,24 +21,50 @@ router.get("/", async (req, res) => {
   }
 });
 
-// TODO: figure out why we can use location and renter data in boats mustache
 router.get("/boat/:id", async (req, res) => {
   try {
     const boatData = await Boat.findByPk(req.params.id, {
+      // NOTE: to properly see a user on boat page the boat needs a renter_id
       include: [
         {
-          model: Location,
-        },
-        {
           model: Renter,
-          attributes: ["image", "first_name"],
+          attributes: ["first_name"],
         },
+        { model: Location },
       ],
     });
     const boat = boatData.get({ plain: true });
-    res.render("boat", { boat });
+    res.render("boat", {
+      ...boat,
+      logged_in: req.session.logged_in
+    });
   } catch (error) {
     res.status(500).json(error);
   }
+});
+
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const renterData = await Renter.findByPk(req.session.renter_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Boat }],
+    });
+    const renter = renterData.get({ plain: true });
+
+    res.render("dashboard", {
+      ...renter,
+      logged_in: true,
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
 });
 module.exports = router;
