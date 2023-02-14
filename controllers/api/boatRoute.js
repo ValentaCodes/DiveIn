@@ -49,11 +49,11 @@ router.get('/', async (req, res) => {
 // new PUT route to update availability and renter id
 router.put('/:id', async (req, res) => {
   try {
-    const { availability, renterid } = req.body;
+    const { availability, renter_id } = req.body;
     const boat = await Boat.findByPk(req.params.id);
     const boatData = await boat.update({
       availability: availability,
-      renterid: renterid,
+      renter_id: renter_id,
     });
     res.status(200).json(boatData);
   } catch (err) {
