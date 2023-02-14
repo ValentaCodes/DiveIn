@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// new PUT route to update availability and renter id
+// new PUT route to update availability and renter id comment
 router.put('/:id', async (req, res) => {
   try {
     const { availability, renter_id } = req.body;
