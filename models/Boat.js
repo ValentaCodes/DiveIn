@@ -44,6 +44,7 @@ Boat.init(
     // added this so we can create a connection between boat and renter. now we know what boat is rented by who
     renter_id: {
       type: DataTypes.INTEGER,
+      unique: true,
       references: {
         model: "renter",
         key: "id",
