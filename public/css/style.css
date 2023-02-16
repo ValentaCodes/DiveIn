@@ -1,6 +1,16 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --main-color: #495867;
+  --second-color: #577399;
+  --third-color: #BDD5EA;
+  --fourth-color: #F7F7FF;
+  --fifth-color: #FE5F55;
+}
+
+
+
 #single_boat {
   width: 55rem;
 }
@@ -50,6 +60,15 @@
 .user_photo {
   border-radius: 50%;
 }
+.boat_reservation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#reservation_text {
+  font-size: 25px;
+  margin-left: 5rem;
+}
 #state-search,
 #date-search,
 #capacity-search {
@@ -65,11 +84,23 @@
 }
 
 .hero {
-  background-image: url("../images/adam-rhodes-QlMCzH1addw-unsplash.jpg");
+  background-image: url("../images/venti-views-LMulE-xuOcc-unsplash.jpg");
+  background-position:center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .hero p {
+  text-shadow: 5px 5px black;
+  font-size: 30px;
   color: white;
+  font-family: 'Pacifico', cursive;
+
+}
+
+@media (max-width: 1025px){
+  .boat_reservation {
+    display: flex;
+    flex-direction: column;
+  }
 }
