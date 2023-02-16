@@ -16,7 +16,6 @@
     "prettier": "^2.8.3"
   },
   "scripts": {
-    "start": "nodemon server.js",
     "seed": "node seeds/seed.js"
   },
   "name": "divein",
