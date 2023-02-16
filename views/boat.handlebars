@@ -29,14 +29,17 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="/login" class="card-footer-item">Reserve</a>
+      {{#if logged_in}}
+      <button type="submit" class="button card-footer-item" id="reservation-btn">Reserve</button>
+      {{else}}
+      <a href="../login" class="card-footer-item">Login</a>
+      {{/if}}
     </footer>
   </div>
   {{#if reviews}}
     <article class="media">
       <figure class="media-left">
         <p class="image is-64x64">
-          {{! TODO: figure out how to access renter and location information }}
           <img src="{{renter.image}}" />
         </p>
       </figure>
@@ -44,30 +47,16 @@
         <div class="content">
           <p>
             <strong>{{renter.first_name}}</strong>
-            <small>@johnsmith</small>
+            <small>@{{renter.username}}</small>
             <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
             ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas
             non massa sem. Etiam finibus odio quis feugiat facilisis.
           </p>
         </div>
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-reply"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-heart"></i></span>
-            </a>
-          </div>
-        </nav>
-      </div>
-      <div class="media-right">
-        <button class="delete"></button>
       </div>
     </article>
   {{/if}}
 </div>
+
+<script src="/js/reservation.js"></script>

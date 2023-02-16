@@ -1,38 +1,63 @@
 [
   {
-    "name": "Malibu Response TXi Open Bow",
-    "capacity": 7,
-    "length": 20,
-    "dayRate": 160,
-    "availability": true
-    
+    "name": "Malibu Response",
+    "image": "https://images.unsplash.com/photo-1534681404244-386763aa10e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w0Mzk0OTk3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    "name": "MasterCraft 2021 ProStar",
-    "capacity": 7,
-    "length": 20,
-    "dayRate": 160,
-    "availability": true
+    "name": "MasterCraft",
+    "image": "https://images.unsplash.com/photo-1588401273872-959d2076283a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGJvYXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    "name": "2021 Nautique 200",
-    "capacity": 9,
-    "length": 20,
-    "dayRate": 160,
-    "availability": true
+    "name": "Nautique",
+    "image": "https://images.unsplash.com/photo-1535233461667-0ce87577c94f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0Mzk0OTk3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    "name": "Chaparral 2021 19 SSI Ski and Fish",
-    "capacity": 11,
-    "length": 19,
-    "dayRate": 160,
-    "availability": true
+    "name": "Chaparral",
+    "image": "https://images.unsplash.com/photo-1521110048000-effe6bb4fb7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3w0Mzk0OTk3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
   },
   {
-    "name": "Crestliner Super Hawk 1850 I/O",
-    "capacity": 8,
-    "length": 18,
-    "dayRate": 160,
-    "availability": true
+    "name": "Crestliner",
+    "image": "https://images.unsplash.com/photo-1520404422950-1c3d1a72a8fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Ym9hdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+
+  {
+    "name": "Sun Tracker",
+    "image": "https://images.unsplash.com/photo-1575893240675-17e719ffa7c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "name": "Catalina",
+    "image": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "name": "Regal",
+    "image": "https://images.unsplash.com/photo-1563296291-14f26f10c20f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "name": "Flat winger",
+    "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "name": "Sea Ray",
+    "image": "https://images.unsplash.com/photo-1593536284003-ef3103cff953?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "name": "Yamaha 360",
+    "image": "https://images.unsplash.com/photo-1605472075651-a1f8d550f508?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODJ8fGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "name": "Hurricane",
+    "image": "https://images.unsplash.com/photo-1601948462831-b7356aa5f98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZpc2hpbmclMjBib2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "name": "Ridge Rider",
+    "image": "https://images.unsplash.com/photo-1517261751717-3f92d6d23c15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJvYXQlMjBvbiUyMGxha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "name": "Lexington",
+    "image": "https://images.unsplash.com/photo-1473711789055-df5beb0e35ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvYXQlMjBvbiUyMGxha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "name": "Bayliner",
+    "image": "https://images.unsplash.com/photo-1630817578611-f68607da5b12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fGJvYXQlMjBvbiUyMGxha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
   }
 ]

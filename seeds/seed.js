@@ -1,7 +1,7 @@
 const { Location, Renter, Boat } = require("../models");
 const { faker } = require("@faker-js/faker");
 const sequelize = require("../config/connection");
-
+const boatImages = require("./boatData.json");
 // Seed database function that allows us to create a new renter and location
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
@@ -21,25 +21,23 @@ const seedDatabase = async () => {
   for (const renter of renterData) {
     await Renter.create({
       ...renter,
-      // this will assign a random boat to a renter
-      // boat_id: boats[Math.floor(Math.random() * boats.length)].id,
     });
   }
   process.exit(0);
 };
 
-// Creates boat with a random price, TODO: figure out how to use each boat Leo created
 const boatData = [
   {
-    name: "Malibu Response TXi Open Bow",
-    capacity: 7,
-    length: 20,
-    hourlyRate: faker.finance.amount(50, 1000, 2),
+    name: boatImages[Math.floor(Math.random() * boatImages.length)].name,
+    capacity: faker.datatype.number(20, 2),
+    length: faker.datatype.number(50, 20),
+    hourlyRate: faker.finance.amount(50, 200, 2),
     availability: true,
-    image:
-      "https://images.unsplash.com/photo-1458430085161-25ad9d8960b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmlzaGluZyUyMGJvYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    image: boatImages[Math.floor(Math.random() * boatImages.length)].image,
   },
 ];
+
+
 // creates a random location
 const locationData = [
   {
@@ -53,7 +51,7 @@ const locationData = [
 // Creates a random user
 let first_name = faker.name.firstName(); //outside the object so we can use them for user-names
 let last_name = faker.name.lastName();
-let image = faker.image.avatar(); 
+let image = faker.image.avatar();
 const renterData = [
   {
     first_name: first_name,

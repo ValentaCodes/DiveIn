@@ -53,7 +53,6 @@ Renter.init(
         len: [8],
       },
     },
-    // NOTE: added boat id so we know what boat is in use by renter
     boat_id: {
       type: DataTypes.INTEGER,
       references: {

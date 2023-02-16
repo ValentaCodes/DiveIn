@@ -3,6 +3,7 @@
 </div>
 <div class="tile is-ancestor" id="boat_container">
   {{#each boats as |boat|}}
+  {{#if boat.availability}}
     <div class="tile">
       <div class="card" id="boat_card">
         <div class="card-image">
@@ -17,6 +18,7 @@
         </p>
       </div>
     </div>
+  {{/if}}
   {{/each}}
 </div>
 <div>
