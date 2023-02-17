@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "nodemon server.js",
+    "build": "node models/index.js && node seeds/seed.js",
     "seed": "node seeds/seed.js"
   },
   "name": "divein",
