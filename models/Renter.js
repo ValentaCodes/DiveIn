@@ -16,7 +16,6 @@ Renter.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // NOTE: added first and last name rows
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,7 +29,6 @@ Renter.init(
       allowNull: false,
       unique: true,
     },
-    // NOTE: renter images will be used for reviews
     image: {
       type: DataTypes.BLOB("long"),
     },

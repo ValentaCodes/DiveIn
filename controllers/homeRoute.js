@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Boat, Location, Renter } = require("../models");
 const withAuth = require("../utils/auth");
 
+// This is the '/' route "main page"
+// finds all boats
 router.get("/", async (req, res) => {
   try {
     const boatData = await Boat.findAll({
@@ -21,10 +23,10 @@ router.get("/", async (req, res) => {
   }
 });
 
+// trigger the boat card page with details
 router.get("/boat/:id", async (req, res) => {
   try {
     const boatData = await Boat.findByPk(req.params.id, {
-      // NOTE: to properly see a user on boat page the boat needs a renter_id
       include: [
         {
           model: Renter,
@@ -43,6 +45,7 @@ router.get("/boat/:id", async (req, res) => {
   }
 });
 
+// gets the user dashboard if logged in
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const renterData = await Renter.findByPk(req.session.renter_id, {
@@ -60,6 +63,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// gets login page
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
