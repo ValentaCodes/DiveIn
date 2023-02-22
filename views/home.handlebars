@@ -1,0 +1,25 @@
+<div class="title">
+  Top Boats
+</div>
+<div class="tile is-ancestor" id="boat_container">
+  {{#each boats as |boat|}}
+  {{#if boat.availability}}
+    <div class="tile">
+      <div class="card" id="boat_card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <a href="/boat/{{boat.id}}">
+              <img src="{{boat.image}}" alt="Placeholder image" />
+            </a>
+          </figure>
+        </div>
+        <p class="title is-5">
+          {{boat.name}}
+        </p>
+      </div>
+    </div>
+  {{/if}}
+  {{/each}}
+</div>
+<div>
+</div>

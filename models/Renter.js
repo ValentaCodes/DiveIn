@@ -16,9 +16,21 @@ Renter.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    image: {
+      type: DataTypes.BLOB("long"),
     },
     email: {
       type: DataTypes.STRING,
@@ -27,32 +39,23 @@ Renter.init(
       validate: {
         isEmail: true,
       },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      city: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      state: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      zip: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
+      },
+    },
+    boat_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "boat",
+        key: "id",
       },
     },
   },
@@ -63,7 +66,10 @@ Renter.init(
         return newRenterData;
       },
       beforeUpdate: async (updatedRenterData) => {
-        updatedRenterData.password = await bcrypt.hash(updatedRenterData.password, 10);
+        updatedRenterData.password = await bcrypt.hash(
+          updatedRenterData.password,
+          10
+        );
         return updatedRenterData;
       },
     },
@@ -71,7 +77,7 @@ Renter.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'renter',
+    modelName: "renter",
   }
 );
 

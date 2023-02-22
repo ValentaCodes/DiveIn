@@ -1,0 +1,77 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dive In</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  </head>
+  <nav
+    class="navbar has-shadow"
+    role="navigation"
+    aria-label="main navigation"
+    id="nav"
+  >
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">Home</a>
+      {{!-- <a class="navbar-item" href="/locations">Locations</a> --}}
+      {{!-- <a class="navbar-item" href="/boats">Boats</a> --}}
+      {{#if logged_in}}
+        <a class="navbar-item" href="/dashboard">Dashboard</a>
+        <a class="navbar-item" href="/" id="logout">Logout</a>
+      {{else}}
+      <a class="navbar-item" href="/login">Login</a>
+      {{/if}}
+    </div>
+  </nav>
+  <section class="hero is-medium">
+    <div class="hero-body">
+      <p class="title">
+        Dive In Boat Rentals
+      </p>
+      <p class="subtitle">Who said exploring the ocean was expensive</p>
+      <div>
+        <form class="home-form">
+          <input
+            class="input is-large"
+            type="text"
+            placeholder="State"
+            id="state-search"
+          />
+          <input
+            class="input is-large"
+            type="date"
+            placeholder="Date"
+            id="date-search"
+          />
+          <input
+            class="input is-large"
+            type="text"
+            placeholder="Capacity"
+            id="capacity-search"
+          />
+          <button
+            class="button is-large"
+            type="submit"
+            id="home-search"
+          >Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <body>
+    <main class="main_container">
+    {{{body}}}
+    </main>
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
