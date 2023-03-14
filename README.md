@@ -31,7 +31,11 @@
 
 ## **Installation**
   
-  N/A
+ - Clone or download repo
+ 
+ - Navigate to respective folder
+ 
+ - npm run dev
 
 ## **Usage**
 
@@ -39,7 +43,11 @@
 
 ## **Contribution**
 
-  N/A
+  Leo Pignanelli
+  
+  Jeremiah Chesley
+  
+  Cornelius Davis
   
 ## **Testing**
 
@@ -49,13 +57,17 @@
 
   Add your screenshots here:
 
-  ![ALT TEXT](URL)
+![Screen Shot 2023-03-13 at 7 58 38 PM](https://user-images.githubusercontent.com/92850947/224872939-63317071-975c-4234-af46-5242d9223a4b.png)
+![Screen Shot 2023-03-13 at 7 58 50 PM](https://user-images.githubusercontent.com/92850947/224872964-92e262ec-64dd-492f-b4fd-913a345cc7d3.png)
+![Screen Shot 2023-03-13 at 7 58 58 PM](https://user-images.githubusercontent.com/92850947/224872972-2d6a103e-b0e6-42ab-a29d-05064328a767.png)
+![Screen Shot 2023-03-13 at 8 00 00 PM](https://user-images.githubusercontent.com/92850947/224872977-a6fbe645-b155-4651-abd4-ae11e0cf1a12.png)
+
 
 ## **Links**
   
   Add any relevant links for this project below:
 
-  [Your Website](URL)
+  [Divein.com](https://divein-production.up.railway.app/)
 
 ## License
 
