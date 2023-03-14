@@ -35,6 +35,8 @@
  
  - Navigate to respective folder
  
+ - npm i
+ 
  - npm run dev
 
 ## **Usage**
